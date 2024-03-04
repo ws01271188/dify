@@ -14,6 +14,7 @@ const SwrInitor = ({
   const router = useRouter()
   const searchParams = useSearchParams()
   const consoleToken = searchParams.get('console_token')
+  const appId = searchParams.get('app_id')
   const consoleTokenFromLocalStorage = localStorage?.getItem('console_token')
   const [init, setInit] = useState(false)
 
@@ -21,7 +22,11 @@ const SwrInitor = ({
     if (!(consoleToken || consoleTokenFromLocalStorage))
       router.replace('/signin')
 
-    if (consoleToken) {
+    if (consoleToken && appId) {
+      localStorage?.setItem('console_token', consoleToken!)
+      router.replace(`/app/${appId}/configuration`, { forceOptimisticNavigation: false } as any)
+    }
+    else if (consoleToken) {
       localStorage?.setItem('console_token', consoleToken!)
       router.replace('/apps', { forceOptimisticNavigation: false } as any)
     }

@@ -7,10 +7,8 @@ const LogoEmbededChatHeader: FC<LogoEmbededChatHeaderProps> = ({
   className,
 }) => {
   return (
-    <img
-      src='/logo/logo-embeded-chat-header.png'
+    <div
       className={`block w-auto h-6 ${className}`}
-      alt='logo'
     />
   )
 }

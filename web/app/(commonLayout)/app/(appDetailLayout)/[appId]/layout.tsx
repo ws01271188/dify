@@ -17,7 +17,6 @@ import {
   DocumentTextIcon as DocumentTextSolidIcon,
 } from '@heroicons/react/24/solid'
 import s from './style.module.css'
-import AppSideBar from '@/app/components/app-sidebar'
 import { fetchAppDetail } from '@/service/apps'
 import { useAppContext } from '@/context/app-context'
 
@@ -64,7 +63,7 @@ const AppDetailLayout: FC<IAppDetailLayoutProps> = (props) => {
     return null
   return (
     <div className={cn(s.app, 'flex', 'overflow-hidden')}>
-      <AppSideBar title={response.name} icon={response.icon} icon_background={response.icon_background} desc={appModeName} navigation={navigation} />
+      {/* <AppSideBar title={response.name} icon={response.icon} icon_background={response.icon_background} desc={appModeName} navigation={navigation} /> */}
       <div className="bg-white grow overflow-hidden">{children}</div>
     </div>
   )
